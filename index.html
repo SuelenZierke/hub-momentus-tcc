@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Hub Momentus | Demonstração do TCC</title>
+<link rel="stylesheet" href="hub.css">
+<script src="hub.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<aside>
+<div class="brand"><span aria-hidden="true">HM</span><strong>Hub Momentus<small>Demonstração do TCC</small></strong></div>
+<nav aria-label="Módulos">
+<a href="#visao">Visão geral</a><a href="#cobertura">Relatório de Cobertura</a><a href="#bipagem">Bipagem de Caixas</a><a href="#indicadores">Painel de Indicadores</a>
+</nav>
+</aside>
+<main id="conteudo">
+<header><span class="tag">Dados fictícios</span><span>Demonstração acadêmica</span></header>
+<section data-page="visao">
+<div class="hero"><p class="eyebrow">TCC · HUB MOMENTUS</p><h1>Da consulta à conferência</h1><p>Explore três rotinas do Hub em uma demonstração interativa. Consulte a cobertura de estoque, simule a conferência de caixas e acompanhe os indicadores.</p><a class="button" href="#cobertura">Explorar relatório</a></div>
+<h2>Módulos da demonstração</h2>
+<div class="cards">
+<a class="card" href="#cobertura"><span class="module-icon" aria-hidden="true">▤</span><h3>Relatório de Cobertura</h3><p>Compare estoque disponível e demanda por referência.</p><span class="link">Consultar cobertura →</span></a>
+<a class="card" href="#bipagem"><span class="module-icon" aria-hidden="true">▥</span><h3>Bipagem de Caixas</h3><p>Confira um pedido de exemplo e veja como a rotina sinaliza divergências.</p><span class="link">Simular conferência →</span></a>
+<a class="card" href="#indicadores"><span class="module-icon" aria-hidden="true">▦</span><h3>Painel de Indicadores</h3><p>Compare volumes e percentuais de conferência por período.</p><span class="link">Acompanhar indicadores →</span></a>
+</div></section>
+<section data-page="cobertura" hidden>
+<div class="intro"><h1>Relatório de Cobertura</h1><p>Consulte o percentual de demanda coberto pelo estoque de cada referência.</p></div>
+<div id="coverage-metrics" class="cards metrics"></div>
+<div class="panel"><div class="filters"><label>Buscar referência ou produto<input id="search" type="search" placeholder="Ex.: DEMO-01 ou camiseta"></label><label>Situação<select id="coverage-filter"><option value="">Todas</option><option>Coberta</option><option>Parcial</option><option>Sem estoque</option></select></label></div>
+<p id="coverage-count" class="muted" role="status"></p>
+<div class="table-wrap"><table aria-label="Cobertura por referência"><thead><tr><th>Referência</th><th>Produto</th><th>Estoque</th><th>Demanda</th><th>Cobertura</th><th>Situação</th></tr></thead><tbody id="coverage-body"></tbody></table></div></div>
+</section>
+<section data-page="bipagem" hidden>
+<div class="intro"><h1>Bipagem de Caixas</h1><p>Simule a conferência do pedido DEMO-P01. As leituras são descartadas ao recarregar a página.</p></div>
+<div class="panel">
+<div class="filters"><label>Código da caixa<input id="scan" maxlength="32" autocomplete="off" placeholder="Ex.: CX-101"></label><button id="add" type="button">Conferir caixa</button><button id="reset" type="button" class="secondary">Reiniciar simulação</button></div>
+<div class="samples" aria-label="Códigos de exemplo"><span>Testar código</span><button class="secondary" data-sample="CX-101">CX-101</button><button class="secondary" data-sample="CX-102">CX-102</button><button class="secondary" data-sample="CX-103">CX-103</button><button class="secondary" data-sample="CX-999">CX-999</button></div>
+<p id="scan-message" class="feedback" role="status"></p>
+<div class="table-wrap"><table aria-label="Caixas do pedido de exemplo"><thead><tr><th>Caixa</th><th>Volume</th><th>Situação</th></tr></thead><tbody id="scan-body"></tbody></table></div>
+<p id="scan-count" class="summary"></p></div>
+</section>
+<section data-page="indicadores" hidden>
+<div class="intro"><h1>Painel de Indicadores</h1><p>Acompanhe a conferência de caixas em períodos de exemplo.</p></div>
+<div class="panel period"><label>Período<select id="period"><option value="0">Abril a junho</option><option value="1">Julho a setembro</option></select></label></div>
+<div id="bi-metrics" class="cards metrics"></div>
+<div class="panel"><h2>Conferência por mês</h2><div id="bi-chart" class="chart"></div></div>
+</section>
+<footer>Protótipo acadêmico · Registros e indicadores ilustrativos</footer>
+</main>
+</body>
+</html>
